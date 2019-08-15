@@ -34,4 +34,5 @@ graphic.plot(arrt, arry, color = 'red') # cor vermelha pra o grafico da sol. de 
 graphic.plot(arrt, arrs, color = 'yellow') #cor amarela para o grafico da sol. da EDO
 
 print("Result = {}".format(arry[qt_it]))
+print("Exact = {}".format(solve(n)))
 graphic.show()
