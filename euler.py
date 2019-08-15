@@ -1,14 +1,18 @@
-u = [] # vetor com os valores
-def f(x): return x # funcao f(x)
+import math
 
-num_it = int(input()) # iteracao que se deseja 
-tam = float(input()) # tamanho do intervalo (quanto menor, maior a precisao)
+u = [] # vetor com os valores 
+def f(t, y): return (1 - t + (4 * y)) # y(t, y)
+
+n = int(input()) # quantidade de pontos
+h = float(input()) # valor do passo
 
 u.append(1) # caso base
+qt_it = math.ceil(n/h) # quantidade de iterações necessarias
 
-qt_iteration = int((num_it/tam)+1) # quantia de iteracoes necessarias para chegar no resultado
+t = 0 # t vai de 0 até n (0,n)
 
-for i in range(0, qt_iteration):
-    u.append(u[i] + tam*f(u[i])) # metodo de euler
+for i in range(1, qt_it+1):
+    u.append(u[i-1] + h * f(t, u[i-1])) # metodo de euler
+    t = t + h
 
-print("Result = {}".format(u[qt_iteration-1])) # resultado final
+print("Result = {}".format(u[qt_it]))
