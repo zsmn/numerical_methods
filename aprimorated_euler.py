@@ -21,10 +21,8 @@ arrt.append(t) # iniciando com o primeiro passo
 
 for i in range(1, qt_it+1):
     k1 = f(t, arry[i-1])
-    k2 = f(t + 0.5 * h, arry[i-1] + 0.5 * h * k1)
-    k3 = f(t + 0.5 * h, arry[i-1] + 0.5 * h * k2)
-    k4 = f(t + h, arry[i-1] + h * k3)
-    arry.append(arry[i-1] + (h/6) * (k1 + (2*k2) + (2*k3) + k4)) # metodo de euler
+    k2 = f(t+h, arry[i-1] + h * k1)
+    arry.append(arry[i-1] + (h/2) * (k1 + k2)) # metodo de euler
     arrs.append(solve(t)) # solucao da EDO
     t = t + h # incrementando o passo
     arrt.append(t) # colocando o passo no array
