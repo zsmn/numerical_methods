@@ -28,7 +28,7 @@ for i in range(1, qt_it+1):
     arrt.append(t) # colocando o passo no array
 
 # plotagem do grafico 
-graphic.title('Runge-Kutta Method')
+graphic.title('Aprimorated Euler Method')
 graphic.xlabel("Passos")
 graphic.ylabel("f(t, y)")
 
