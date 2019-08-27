@@ -19,6 +19,7 @@ qt_it = math.ceil(n/h) # quantidade de iterações necessarias
 t = 0 # t vai de 0 até n (0,n)
 arrt.append(t) # iniciando com o primeiro passo
 
+ordem = 2
 # ordem = 2 (provada em sala)
 
 consts = [
@@ -32,15 +33,14 @@ consts = [
     [275/24192, -11351/120960, 1537/4480, -88547/120960, 123133/120960, -4511/4480, 139849/120960, 5257/17280]        
 ]
 
-for i in range(1, qt_it+1):
-    b0 = 1/2
-    b1 = 1/2
+for i in range(ordem-1, qt_it+1):
 
     arrk = []
     aux = 1
     brincadeira = t
     for j in range(0, ordem-1):
-        arrk.append(f(brincadeira, arry[i-(ordem+aux)]))
+        arrk.append(f(brincadeira, arry[(i-ordem)+aux]))
+        aux = aux + 1
         brincadeira = brincadeira + h
 
     arrk.append(f(t, arry[i-1] + arrk[len(arrk) - 1] * h))
