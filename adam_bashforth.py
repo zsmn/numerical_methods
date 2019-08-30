@@ -12,6 +12,8 @@ n = int(input()) # quantidade de pontos
 h = float(input()) # valor do passo
 
 arry.append(1) # caso base
+arry.append(1.00501) # caso base 2
+
 arrs.append(1) # caso base da EDO
 
 qt_it = math.ceil(n/h) # quantidade de iterações necessarias
@@ -24,13 +26,13 @@ ordem = 2
 
 consts = [
     [1],
-    [1/2, 1/2],
-    [-1/12, 2/3, 5/12],
-    [1/24, -5/24, 19/24, 3/8],
-    [-19/720, 53/360, -11/30, 323/360, 251/720],
-    [3/160, -173/1440, 241/720, -133/240, 1427/1440, 95/288],
-    [-863/60480, 263/2520, -6737/20160, 586/945, -15487/20160, 2713/2520, 19087/60480],
-    [275/24192, -11351/120960, 1537/4480, -88547/120960, 123133/120960, -4511/4480, 139849/120960, 5257/17280]        
+    [-1/2, 3/2],
+    [5/12, -4/3, 23/12],
+    [-3/8, 37/24, -59/24, 55/24],
+    [251/720, -637/360, 109/30, -1387/360, 1901/720],
+    [-95/288, 959/480, -3649/720, 4991/720, -2641/480, 4277/1440],
+    [19087/60480, -5603/2520, 135713/20160, -10754/945, 235183/20160, -18637/2520, 198721/60480],
+    [-5257/17280, 32863/13440, -115747/13440, 2102243/120960, -296053/13440, 242653/13440, -1152169/120960, 16083/4480]        
 ]
 
 for i in range(ordem-1, qt_it+1):
@@ -38,19 +40,17 @@ for i in range(ordem-1, qt_it+1):
     arrk = []
     aux = 1
     aux_t = t
-    for j in range(0, ordem-1):
+    for j in range(0, ordem):
         arrk.append(f(aux_t, arry[(i-ordem)+aux]))
-        aux = aux + 1
-        aux_t = aux_t + h
-
-    arrk.append(f(t, arry[i-1] + arrk[len(arrk) - 1] * h))
+        aux = aux + 1 #pegar prx termo do arry
+        aux_t = aux_t + h # proximo t
 
     sum = 0
 
     for j in range(0, len(arrk)):
         sum += arrk[j] * h * consts[ordem-1][j]
 
-    arry.append(arry[i-1] + sum) # metodo de adam multon
+    arry.append(arry[len(arry)-1] + sum) # metodo de adam bashfort
     arrs.append(solve(t)) # solucao da EDO
     t = t + h # incrementando o passo
     arrt.append(t) # colocando o passo no array
@@ -65,5 +65,4 @@ for i in range(ordem-1, qt_it+1):
 
 print("Result = {}".format(arry[len(arry)-1]))
 print("Exact = {}".format(solve(n)))
-
 #graphic.show()
