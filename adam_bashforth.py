@@ -12,7 +12,7 @@ n = int(input()) # quantidade de pontos
 h = float(input()) # valor do passo
 
 arry.append(1) # caso base
-arry.append(1.00501) # caso base 2
+arry.append(1.005) # caso base 2
 
 arrs.append(1) # caso base da EDO
 
@@ -35,7 +35,7 @@ consts = [
     [-5257/17280, 32863/13440, -115747/13440, 2102243/120960, -296053/13440, 242653/13440, -1152169/120960, 16083/4480]        
 ]
 
-for i in range(ordem-1, qt_it+1):
+for i in range(ordem-1, qt_it+(ordem-1)):
 
     arrk = []
     aux = 1

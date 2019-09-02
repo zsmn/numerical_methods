@@ -1,5 +1,5 @@
 import math
-import matplotlib.pyplot as graphic
+#import matplotlib.pyplot as graphic
 
 arry = [] # vetor com os resultados
 arrt = [] # vetor com os passos
@@ -28,13 +28,13 @@ for i in range(1, qt_it+1):
     arrt.append(t) # colocando o passo no array
 
 # plotagem do grafico 
-graphic.title('Aprimorated Euler Method')
-graphic.xlabel("Passos")
-graphic.ylabel("f(t, y)")
+#graphic.title('Aprimorated Euler Method')
+#graphic.xlabel("Passos")
+#graphic.ylabel("f(t, y)")
 
-graphic.plot(arrt, arry, color = 'red') # cor vermelha pra o grafico da sol. de euler
-graphic.plot(arrt, arrs, color = 'yellow') #cor amarela para o grafico da sol. da EDO
+#graphic.plot(arrt, arry, color = 'red') # cor vermelha pra o grafico da sol. de euler
+#graphic.plot(arrt, arrs, color = 'yellow') #cor amarela para o grafico da sol. da EDO
 
 print("Result = {}".format(arry[qt_it]))
 print("Exact = {}".format(solve(n)))
-graphic.show()
+#graphic.show()
