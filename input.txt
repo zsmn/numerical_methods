@@ -1,14 +1,1 @@
-euler 0 1 0.001 2000 1-t+4*y
-euler_inverso 0 1 0.001 2000 1-t+4*y
-euler_aprimorado 0 1 0.001 2000 1-t+4*y
-runge_kutta 0 1 0.001 2000 1-t+4*y
-adam_multon_by_euler_inverso 0 1 0.001 2000 1-t+4*y 2
-adam_multon_by_euler_aprimorado 0 1 0.001 2000 1-t+4*y 2
-adam_multon_by_runge_kutta 0 1 0.001 2000 1-t+4*y 2
-adam_multon_by_euler 0 1 0.001 2000 1-t+4*y 2
-adam_multon 0 1 0.001 2000 1-t+4*y 2
-adam_bashforth_by_euler_inverso 0 1 0.001 2000 1-t+4*y 2
-adam_bashforth_by_euler_aprimorado 0 1 0.001 2000 1-t+4*y 2
-adam_bashforth_by_runge_kutta 0 1 0.001 2000 1-t+4*y 2
-adam_bashforth_by_euler 0 1 0.001 2000 1-t+4*y 2
-adam_bashforth 0 1 1.05 0.001 2000 1-t+4*y 2
+adam_bashforth_by_euler 0 0 0.1 20 1-t+4*y 6
