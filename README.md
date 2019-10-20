@@ -1,87 +1,159 @@
 # Numerical Methods
 
-One Paragraph of project description goes here
+This project was designed for the Computer Engineering Numerical Methods Class 2019.2
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+First clone this repository
 
 ```
-Give examples
+git clone https://github.com/zsmn/numerical_methods.git
+```
+
+You also will need:
+
+```
+python >= 3
+virtualenv
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Now after clone the repository you will need to run the RUNME file
 
 ```
-Give the example
+source RUNME
 ```
 
-And repeat
+And now after the end of installation of dependences, you can run the project
 
 ```
-until finished
+python3 methods.py
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+Now you can open the input.txt file and insert some methods to be calculated. You can see how you can do this on the following topic.
 
-## Running the tests
+## How to insert a method in input.txt
 
-Explain how to run the automated tests for this system
+Actually this project can do the following methods:
 
-### Break down into end to end tests
+* Euler
+* Aprimorated Euler
+* Reverse Euler
+* Runge-Kutta (order = 4)
+* Adam Multon (order = 1 to order = 8)
+* Adam Bashforth (order = 1 to order = 8)
+* Inverse Formule (order = 1 to order = 6)
 
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
+### Euler
 
 ```
-Give an example
+euler y0 t0 steps function
 ```
 
-## Deployment
+### Aprimorated Euler
 
-Add additional notes about how to deploy this on a live system
+```
+euler_aprimorado y0 t0 steps function
+```
 
-## Built With
+### Reverse Euler
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+```
+euler_inverso y0 t0 steps function
+```
 
-## Contributing
+### Runge Kutta
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+```
+runge_kutta y0 t0 steps function
+```
 
-## Versioning
+### Adam Multon
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+```
+adam_multon y0 y1 ... yn-1 t0 steps function order
+```
+
+You can also use this method predicting the points using Euler, Aprimorated Euler, Reverse Euler or Runge Kutta methods
+
+```
+adam_multon_by_euler y0 t0 steps function order
+```
+```
+adam_multon_by_euler_aprimorado y0 t0 steps function order
+```
+```
+adam_multon_by_euler_inverso y0 t0 steps function order
+```
+```
+adam_multon_by_runge_kutta y0 t0 steps function order
+```
+
+### Adam Bashforth
+
+```
+adam_bashforth y0 y1 ... yn t0 steps function order
+```
+
+You can also use this method predicting the points using Euler, Aprimorated Euler, Reverse Euler or Runge Kutta methods
+
+```
+adam_bashforth_by_euler y0 t0 steps function order
+```
+```
+adam_bashforth_by_euler_aprimorado y0 t0 steps function order
+```
+```
+adam_bashforth_by_euler_inverso y0 t0 steps function order
+```
+```
+adam_bashforth_by_runge_kutta y0 t0 steps function order
+```
+
+### Inverse Formule
+
+```
+formula_inversa y0 y1 ... yn t0 steps function order
+```
+
+You can also use this method predicting the points using Euler, Aprimorated Euler, Reverse Euler or Runge Kutta methods
+
+```
+formula_inversa_by_euler y0 t0 steps function order
+```
+```
+formula_inversa_by_euler_aprimorado y0 t0 steps function order
+```
+```
+formula_inversa_by_euler_inverso y0 t0 steps function order
+```
+```
+formula_inversa_by_runge_kutta y0 t0 steps function order
+```
+
+## Example of input and output
+
+Input:
+
+```
+test
+```
+
+Output:
+
+```
+output
+```
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Zilde Neto** - *Development* - [zsmn](https://github.com/zsmn)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
