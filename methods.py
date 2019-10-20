@@ -58,11 +58,12 @@ def plotGraphic(method, arrt, arry, color):
 
     return
 
-def euler(funct, y0, t0, qt_it, h, printar = True):
-    print('Euler')
-    print('y({}) = {}'.format(t0, y0))
-    print('it = {}'.format(qt_it))
-    print('h = {}'.format(h))
+def euler(funct, y0, t0, qt_it, h, printar):
+    if(printar):
+        print('Euler')
+        print('y({}) = {}'.format(t0, y0))
+        print('it = {}'.format(qt_it))
+        print('h = {}'.format(h))
 
     f = parse_expr(funct)
     arrt = []
@@ -78,11 +79,12 @@ def euler(funct, y0, t0, qt_it, h, printar = True):
 
     return arry, arrt
 
-def reverse_euler(funct, y0, t0, qt_it, h, printar = True):
-    print('Reverse Euler')
-    print('y({}) = {}'.format(t0, y0))
-    print('it = {}'.format(qt_it))
-    print('h = {}'.format(h))
+def reverse_euler(funct, y0, t0, qt_it, h, printar):
+    if(printar):
+        print('Reverse Euler')
+        print('y({}) = {}'.format(t0, y0))
+        print('it = {}'.format(qt_it))
+        print('h = {}'.format(h))
 
     f = parse_expr(funct)
     arrt = []
@@ -101,11 +103,12 @@ def reverse_euler(funct, y0, t0, qt_it, h, printar = True):
 
     return arry, arrt
 
-def aprimorated_euler(funct, y0, t0, qt_it, h, printar = True):
-    print('Aprimorated Euler')
-    print('y({}) = {}'.format(t0, y0))
-    print('it = {}'.format(qt_it))
-    print('h = {}'.format(h))
+def aprimorated_euler(funct, y0, t0, qt_it, h, printar):
+    if(printar):
+        print('Aprimorated Euler')
+        print('y({}) = {}'.format(t0, y0))
+        print('it = {}'.format(qt_it))
+        print('h = {}'.format(h))
     
     f = parse_expr(funct)
     arrt = []
@@ -123,11 +126,12 @@ def aprimorated_euler(funct, y0, t0, qt_it, h, printar = True):
     
     return arry, arrt
 
-def runge_kutta(funct, y0, t0, qt_it, h, printar = True):
-    print('Runge Kutta')
-    print('y({}) = {}'.format(t0, y0))
-    print('it = {}'.format(qt_it))
-    print('h = {}'.format(h))
+def runge_kutta(funct, y0, t0, qt_it, h, printar):
+    if(printar):
+        print('Runge Kutta')
+        print('y({}) = {}'.format(t0, y0))
+        print('it = {}'.format(qt_it))
+        print('h = {}'.format(h))
 
     f = parse_expr(funct)
     arrt = []
@@ -175,17 +179,17 @@ def adam_multon(funct, vety, vett, qt_it, h, ordem, complemento = ''):
     for i in range(int(ordem), int(qt_it) + 1, 1):
         aux = 0.0
         # calculando com ajuda de bashforth
-        pd_term = float(h) * consts_multon[int(ordem) - 1][0] * f.subs(t, float(arrt[i - 1]) + float(h)).subs(y, bashfort_dynamic_prevision(funct, arry, arrt[len(arrt) - 1], h, ordem))
+        pd_term = float(h) * consts_multon[int(ordem) - 1][0] * f.subs(t, float(arrt[len(arrt) - 1]) + float(h)).subs(y, bashfort_dynamic_prevision(funct, arry, arrt[len(arrt) - 1], h, ordem))
         aux += pd_term
 
         for j in range(1, len(consts_multon[int(ordem) - 1]), 1):
-            aux += float(h) * consts_multon[int(ordem) - 1][j] * f.subs(t, arrt[i - 1] - (float(h) * (j - 1))).subs(y, arry[len(arry) - (j - 1) - 1])
+            aux += float(h) * consts_multon[int(ordem) - 1][j] * f.subs(t, arrt[len(arrt) - 1] - (float(h) * (j - 1))).subs(y, arry[len(arry) - (j - 1) - 1])
 
-        arry.append(float(arry[i - 1]) + aux)
-        arrt.append(float(arrt[i - 1]) + float(h))
+        arry.append(float(arry[len(arry) - 1]) + aux)
+        arrt.append(float(arrt[len(arrt) - 1]) + float(h))
 
 
-        print(i, ' ', arry[i])
+        print(i, ' ', arry[len(arry) - 1])
 
     return arry, arrt
 
@@ -249,16 +253,16 @@ def main():
     for linha in arq:
         param = linha.split()
         if(param[0] == "euler"):
-            pts_y, pts_t = euler(param[5], param[1], param[2], param[4], param[3])
+            pts_y, pts_t = euler(param[5], param[1], param[2], param[4], param[3], True)
             plotGraphic("Euler", pts_t, pts_y, 'red')
         elif(param[0] == "euler_inverso"):
-            pts_y, pts_t = reverse_euler(param[5], param[1], param[2], param[4], param[3])
+            pts_y, pts_t = reverse_euler(param[5], param[1], param[2], param[4], param[3], True)
             plotGraphic("Euler Inverso", pts_t, pts_y, 'yellow')
         elif(param[0] == "euler_aprimorado"):
-            pts_y, pts_t = aprimorated_euler(param[5], param[1], param[2], param[4], param[3])
+            pts_y, pts_t = aprimorated_euler(param[5], param[1], param[2], param[4], param[3], True)
             plotGraphic("Euler Aprimorado", pts_t, pts_y, 'blue')
         elif(param[0] == "runge_kutta"):
-            pts_y, pts_t = runge_kutta(param[5], param[1], param[2], param[4], param[3])
+            pts_y, pts_t = runge_kutta(param[5], param[1], param[2], param[4], param[3], True)
             plotGraphic("Runge Kutta", pts_t, pts_y, 'black')
         elif("adam_multon" in param[0]):
             if("by_euler_inverso" in param[0]):
