@@ -8,7 +8,7 @@ pts_t = [] # passos
 y, t = sym.symbols('y t')
 
 consts_bashforth = [
-	[1.0],
+    [1.0],
 	[3.0/2.0,-1.0/2.0],
 	[23.0/12.0,-4.0/3.0,5.0/12.0],
 	[55.0/24.0,-59.0/24.0,37.0/24.0,-3.0/8.0],
@@ -30,16 +30,16 @@ consts_multon = [
 ]
 
 consts_inversa_before = [
-	[1.0],
-	[4.0/3.0, -1.0/3.0],
-	[18.0/11.0, -9.0/11.0, 2.0/11.0],
-	[48.0/25.0,-36.0/25.0,16.0/25.0,-3.0/25.0],
+    [1.0],
+    [4.0/3.0, -1.0/3.0],
+    [18.0/11.0, -9.0/11.0, 2.0/11.0],
+    [48.0/25.0,-36.0/25.0,16.0/25.0,-3.0/25.0],
 	[300.0/137.0,-300.0/137.0,200.0/137.0,-75.0/137.0,12.0/137.0],
 	[360.0/147.0,-450.0/147.0,400.0/147.0,-225.0/147.0,72.0/147.0,-10.0/147.0]
 ]
 
 consts_inversa_after = [
-	[1.0],
+    [1.0],
 	[2.0/3.0],
 	[6.0/11.0],
 	[12.0/25.0],
@@ -78,7 +78,7 @@ def euler(funct, y0, t0, qt_it, h, printar = True):
 
     return arry, arrt
 
-def reverse_euler(funct, y0, t0, qt_it, h):
+def reverse_euler(funct, y0, t0, qt_it, h, printar = True):
     print('Reverse Euler')
     print('y({}) = {}'.format(t0, y0))
     print('it = {}'.format(qt_it))
@@ -101,7 +101,7 @@ def reverse_euler(funct, y0, t0, qt_it, h):
 
     return arry, arrt
 
-def aprimorated_euler(funct, y0, t0, qt_it, h):
+def aprimorated_euler(funct, y0, t0, qt_it, h, printar = True):
     print('Aprimorated Euler')
     print('y({}) = {}'.format(t0, y0))
     print('it = {}'.format(qt_it))
@@ -123,7 +123,7 @@ def aprimorated_euler(funct, y0, t0, qt_it, h):
     
     return arry, arrt
 
-def runge_kutta(funct, y0, t0, qt_it, h):
+def runge_kutta(funct, y0, t0, qt_it, h, printar = True):
     print('Runge Kutta')
     print('y({}) = {}'.format(t0, y0))
     print('it = {}'.format(qt_it))
@@ -215,8 +215,6 @@ def adam_bashforth(funct, vety, vett, qt_it, h, ordem, complemento = ''):
 
     return arry, arrt
 
-## falta formula inversa!
-
 def formula_inversa(funct, vety, vett, qt_it, h, ordem, complemento = ''):
     print('Formula Inversa', complemento)
     print('it = {}'.format(qt_it))
@@ -247,28 +245,6 @@ def formula_inversa(funct, vety, vett, qt_it, h, ordem, complemento = ''):
 
 def main():
     arq = open('input.txt', 'r')
-
-    # euler, euler-inverso, euler-aprimorado, runge-kutta:
-    # metodo y0 t0 qt_passos func
-
-    # adam_multon_by_euler, by_euler_inverso, by_runge_kutta, by_euler_aprimorado
-    # metodo y0 t0 qt_passos func ordem
-
-    # adam_multon
-    # metodo y0 y1 ... yn - 1 t0 qt_passos func ordem
-
-    # adam_bashforth_by_euler, by_euler_inverso, by_runge_kutta, by_euler_aprimorado
-    # metodo y0 t0 qt_passos func ordem
-
-    # adam_bashforth
-    # metodo y0 y1 ... yn t0 qt_passos func ordem
-
-    # formula_inversa_by_euler, by_euler_inverso, by_runge_kutta, by_euler_aprimorado
-    # metodo y0 t0 qt_passos func ordem
-
-    # formula_inversa
-    # metodo y0 y1 .... yn t0 qt_passos func ordem
-     
 
     for linha in arq:
         param = linha.split()
@@ -368,4 +344,6 @@ def main():
                 
                 pts_y, pts_t = formula_inversa(param[len(param) - 2], pts_y, pts_t, param[len(param) - 3], param[len(param) - 4], param[len(param) - 1])
                 plotGraphic("Formula Inversa", pts_t, pts_y, 'silver')
+
+
 main()
