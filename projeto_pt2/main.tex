@@ -215,6 +215,46 @@
     
     Logo é possível notar que quando t tende ao infinito, ambas as equações que definem a quantidade de sal nos tanques tende a zero, ou seja, a água em ambos os tanques se torna totalmente pura.
 
+    \subsection{Comparação e análise de desempenho}
+    
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[width=.4\textwidth]{problemas/metodos_q1/p1_ta_analitica.png}
+            \includegraphics[width=.4\textwidth]{problemas/metodos_q1/p1_tb_analitica.png}
+        \end{center}
+        \caption{Curva analítica para os tanques A e B, respectivamente}
+    \end{figure}
+    
+    Para o tanque A:
+    \begin{center}
+    \begin{tabular}{ |c| |c| |c| }
+    \hline
+     \textbf{Método}               & \textbf{Erro}         & \textbf{Tempo gasto (segundos)} \\ \hline
+    Euler                         & 0.0108048258525886600 & 11.59800225300023200            \\ \hline
+    Euler Aprimorado              & 0.0004709446229427919 & 14.41205902599995200            \\ \hline
+    Euler Inverso                 & 0.0096969795435341940 & 12.52702134199989800            \\ \hline
+    Runge-Kutta                   & 0.0004692057777403806 & 25.29071233800005000            \\ \hline
+    Adam Multon     (Runge-Kutta) & 0.0004687661187315969 & 51.35361305399965000            \\ \hline
+    Adam Bashforth (Runge-Kutta)  & 0.0004687661187558823 & 30.82791833299961600            \\ \hline
+    Formula Inversa (Runge-Kutta) & 0.0004687661004434365 & 52.82960727399950000            \\ \hline 
+    \end{tabular}
+    \end{center}
+    
+    \newpara
+    Para o tanque B:
+    \begin{center}
+    \begin{tabular}{ |c| |c| |c| }
+    \hline
+    \textbf{Método}               & \textbf{Erro}         & \textbf{Tempo gasto (segundos)} \\ \hline
+    Euler                         & 0.0060006359343268770 & 11.78195219100052800            \\ \hline
+    Euler Aprimorado              & 0.0009779357032494515 & 14.42109552700094400            \\ \hline
+    Euler Inverso                 & 0.0073964231583328300 & 13.30305756199959400            \\ \hline
+    Runge-Kutta                   & 0.0009793411430042180 & 25.55836693000128400            \\ \hline
+    Adam Multon     (Runge-Kutta) & 0.0007714542257311467 & 52.61620650999975600            \\ \hline
+    Adam Bashforth (Runge-Kutta)  & 0.0007714542257347268 & 35.03763693700057000            \\ \hline
+    Formula Inversa (Runge-Kutta) & 0.0007714542168683006 & 52.92300133599929000            \\ \hline
+    \end{tabular}
+    \end{center}
     
 \newpage
 \section{Segundo Problema}
@@ -292,14 +332,14 @@ circuito quando t tende para infinito.
         \label{p2_eq13}
     \end{equation}
     
-    \subsection{Solução Analítica}
-    
     Utilizando as equações \ref{p2_eq6} e \ref{p2_eq13} podemos formar o nosso sistema de equações:
     
     \begin{empheq}[left=\empheqlbrace]{align}
       E - L\frac{di_{1}}{dt} - i_{2}R &= 0 \\ 
       i_{1} - i_{2} - RC\frac{di_{2}}{dt} &= 0
     \end{empheq}
+    
+    \subsection{Solução Analítica}
     
     Substituindo os valores informados no enunciado do problema nas equações \ref{p2_eq6} e \ref{p2_eq13} temos
     
@@ -453,6 +493,47 @@ circuito quando t tende para infinito.
     \[\lim_{t\to\infty} i_{2}(t) = \lim_{t\to\infty} -120te^{-100t}-1.2e^{-100t} + 1.2 = 1.2\]
     
     Aplicando L'hospital em ambos os termos \(te^{-100t}\) nós notamos que nessa parcela de equação tende a zero, assim como no termo \(1.2e^{-100t}\) também temos tendência a zero, dessa forma o nosso limite fica como sendo o limite de uma constante (que é a própria constante), assumindo o valor de \(1.2\).
+    
+    \subsection{Comparação e análise de desempenho}
+    
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[width=.4\textwidth]{problemas/metodos_q2/p2_i1_analitica.png}
+            \includegraphics[width=.4\textwidth]{problemas/metodos_q2/p2_i2_analitica.png}
+        \end{center}
+        \caption{Curva analítica para as correntes i1 e i2, respectivamente}
+    \end{figure}
+    
+    Para a corrente \(i_{1}\)
+    \begin{center}
+    \begin{tabular}{ |c| |c| |c| }
+    \hline
+    \textbf{Método}               & \textbf{Erro}        & \textbf{Tempo gasto (segundos)} \\ \hline
+    Euler                         & 0.251430044774994500 & 11.602277582000170000           \\ \hline
+    Euler Aprimorado              & 0.001417864799070890 & 13.629271321000488000           \\ \hline
+    Euler Inverso                 & 0.248611418340939100 & 12.652170947001650000           \\ \hline
+    Runge-Kutta                   & 0.000423068968327848 & 22.827011986999423000           \\ \hline
+    Adam Multon     (Runge-Kutta) & 0.000644460580494456 & 46.779435370001010000           \\ \hline
+    Adam Bashforth (Runge-Kutta)  & 0.031134816296751720 & 30.504497595000430000           \\ \hline
+    Formula Inversa (Runge-Kutta) & 0.008057047787682205 & 46.627114184999300000           \\ \hline 
+    \end{tabular}
+    \end{center}
+    
+    \newpara
+    Para a corrente \(i_{2}\)
+    \begin{center}
+    \begin{tabular}{ |c| |c| |c| }
+    \hline
+    \textbf{Método}               & \textbf{Erro}        & \textbf{Tempo gasto (segundos)} \\ \hline
+    Euler                         & 0.079346140236202490 & 10.356844956999339000           \\ \hline
+    Euler Aprimorado              & 0.079408088833889210 & 11.286269763999371000           \\ \hline
+    Euler Inverso                 & 0.079527994837800120 & 11.363029144000393000           \\ \hline
+    Runge-Kutta                   & 0.001172471542106021 & 19.196159512999657000           \\ \hline
+    Adam Multon     (Runge-Kutta) & 0.002237778539132991 & 44.365425326001060000           \\ \hline
+    Adam Bashforth (Runge-Kutta)  & 0.094591986405195180 & 25.409403187999487000           \\ \hline
+    Formula Inversa (Runge-Kutta) & 0.026406731711903050 & 40.776882279000350000           \\ \hline
+    \end{tabular}
+    \end{center}
     
 \newpage
 \section{Terceiro Problema}
@@ -876,5 +957,48 @@ e minimo que a corrente pode atingir.
       i_{2_{min}} &= -11.14 A (t = 3.68)
     \end{empheq}
     
+    \subsection{Comparação e análise de desempenho}
+    
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[width=.4\textwidth]{problemas/metodos_q3/p3_i1_analitica.png}
+            \includegraphics[width=.4\textwidth]{problemas/metodos_q3/p3_i2_analitica.png}
+        \end{center}
+        \caption{Curva analítica para as correntes i1 e i2, respectivamente}
+    \end{figure}
+    
+    Para a corrente \(i_{1}\)
+    \begin{center}
+    \begin{tabular}{ |c| |c| |c| }
+    \hline
+    \textbf{Método}               & \textbf{Erro}        & \textbf{Tempo gasto (segundos)} \\ \hline
+    Euler                         & 0.009611517371893686 & 24.665073835001750000           \\ \hline
+    Euler Aprimorado              & 0.019126143199493020 & 28.487009765000040000           \\ \hline
+    Euler Inverso                 & 0.047425733994986020 & 27.996622590999323000           \\ \hline
+    Runge-Kutta                   & 0.019159397752914350 & 51.085060620000150000           \\ \hline
+    Adam Multon     (Runge-Kutta) & 0.019684703613988750 & 86.963522034999190000           \\ \hline
+    Adam Bashforth (Runge-Kutta)  & 0.019684725228976280 & 62.449688984999740000           \\ \hline
+    Formula Inversa (Runge-Kutta) & 0.019684695414390690 & 84.357299414999940000           \\ \hline
+    \end{tabular}
+    \end{center}
+    
+    \newpara
+    Para a corrente \(i_{2}\)
+    \begin{center}
+    \begin{tabular}{ |c| |c| |c| }
+    \hline
+    \textbf{Método}               & \textbf{Erro}        & \textbf{Tempo gasto (segundos)} \\ \hline
+    Euler                         & 0.021449162178212290 & 26.529602385000544000           \\ \hline
+    Euler Aprimorado              & 0.043421685699840550 & 29.648815021000700000           \\ \hline
+    Euler Inverso                 & 0.111077871914092200 & 26.481343131999893000           \\ \hline
+    Runge-Kutta                   & 0.043298465007121680 & 49.270973112001230000           \\ \hline
+    Adam Multon     (Runge-Kutta) & 0.042181432202994560 & 88.481488043000350000           \\ \hline
+    Adam Bashforth (Runge-Kutta)  & 0.042181374912469300 & 61.888950270000350000           \\ \hline
+    Formula Inversa (Runge-Kutta) & 0.042181453699299200 & 85.180135425000120000           \\ \hline
+    \end{tabular}
+    \end{center}
+    
 \newpage
+\section{Conclusão}
+
 \end{document}
